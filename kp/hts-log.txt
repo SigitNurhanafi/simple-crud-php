@@ -1,0 +1,28 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 03 Jan 2018 14:21:37 at http://www.dispertapa-kotabandung.com +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://www.dispertapa-kotabandung.com -O1 "C:\My Web Sites\kp" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+14:26:45	Error: 	"Not Found" (404) at link www.dispertapa-kotabandung.com/js/jquery.easing.1.3.js (from www.dispertapa-kotabandung.com/)
+14:26:45	Error: 	"Not Found" (404) at link www.dispertapa-kotabandung.com/js/jquery.jcarousel.js (from www.dispertapa-kotabandung.com/)
+14:26:45	Error: 	"Not Found" (404) at link www.dispertapa-kotabandung.com/index.html (from www.dispertapa-kotabandung.com/)
+14:35:24	Warning: 	File not parsed, looks like binary: www.dispertapa-kotabandung.com/images_content/azx.php
+14:35:24	Error: 	"Not Found" (404) at link www.dispertapa-kotabandung.com/images_content/scarlett.php (from www.dispertapa-kotabandung.com/)
+14:35:51	Error: 	Exit requested by shell or user
+14:35:53	Warning: 	File not added due to mirror cancel: www.dispertapa-kotabandung.com/images_content/123.jpg
+14:35:53	Warning: 	File not added due to mirror cancel: www.dispertapa-kotabandung.com/images_content/123.jpg
+14:35:53	Warning: 	File not added due to mirror cancel: www.dispertapa-kotabandung.com/images_content/123.jpg
+14:35:53	Warning: 	File not added due to mirror cancel: www.dispertapa-kotabandung.com/images_content/123.jpg
+14:35:56	Error: 	Exit requested by shell or user
+14:35:56	Error: 	"" (-1) at link www.dispertapa-kotabandung.com/index.php?page=Artikel&modul=Artikel&lang=ind&id=387 (from www.dispertapa-kotabandung.com/)
+14:35:56	Error: 	Exit requested by shell or user
+
+HTTrack Website Copier/3.49-2 mirror complete in 14 minutes 19 seconds : 449 links scanned, 413 files written (21574070 bytes overall) [22394165 bytes received at 26070 bytes/sec], 3.7 requests per connection
+(8 errors, 5 warnings, 0 messages)
+* * MIRROR ABORTED! * *
+The current temporary cache is required for any update operation and only contains data downloaded during the present aborted session.
+The former cache might contain more complete information; if you do not want to lose that information, you have to restore it and delete the current cache.
+This can easily be done here by erasing the hts-cache/new.* files]
