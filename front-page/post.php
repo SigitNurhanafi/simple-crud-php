@@ -1,3 +1,6 @@
+<?php
+require(getcwd().'\core_php\config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,42 +14,21 @@
   <title>Blog Post - Start Bootstrap Template</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="front-page/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?= __base_url ?>front-page/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="front-page/css/blog-post.css" rel="stylesheet">
-
+  <link href="<?= __base_url ?>front-page/css/blog-post.css" rel="stylesheet">
+  <style media="screen">
+    p {
+       width: auto !important;
+    }
+  </style>
 </head>
 
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="front-page/#">Start Bootstrap</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="front-page/#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="front-page/#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="front-page/#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="front-page/#">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<?php require(getcwd().'/front-page/navbar.php'); ?>
 
   <!-- Page Content -->
   <div class="container">
@@ -62,7 +44,7 @@
         <!-- Author -->
         <p class="lead ">
           by
-          <a href="front-page/# ">Start Bootstrap</a>
+          <a href="<?= __base_url ?>front-page/# ">Start Bootstrap</a>
         </p>
 
         <hr>
@@ -123,26 +105,26 @@
               <div class="col-lg-6 ">
                 <ul class="list-unstyled mb-0 ">
                   <li>
-                    <a href="front-page/# ">Web Design</a>
+                    <a href="<?= __base_url ?>front-page/# ">Web Design</a>
                   </li>
                   <li>
-                    <a href="front-page/# ">HTML</a>
+                    <a href="<?= __base_url ?>front-page/# ">HTML</a>
                   </li>
                   <li>
-                    <a href="front-page/# ">Freebies</a>
+                    <a href="<?= __base_url ?>front-page/# ">Freebies</a>
                   </li>
                 </ul>
               </div>
               <div class="col-lg-6 ">
                 <ul class="list-unstyled mb-0 ">
                   <li>
-                    <a href="front-page/# ">JavaScript</a>
+                    <a href="<?= __base_url ?>front-page/# ">JavaScript</a>
                   </li>
                   <li>
-                    <a href="front-page/# ">CSS</a>
+                    <a href="<?= __base_url ?>front-page/# ">CSS</a>
                   </li>
                   <li>
-                    <a href="front-page/# ">Tutorials</a>
+                    <a href="<?= __base_url ?>front-page/# ">Tutorials</a>
                   </li>
                 </ul>
               </div>
@@ -175,8 +157,8 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="front-page/vendor/jquery/jquery.min.js "></script>
-  <script src="front-page/vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
+  <script src="<?= __base_url ?>front-page/vendor/jquery/jquery.min.js "></script>
+  <script src="<?= __base_url ?>front-page/vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
 
 </body>
 

@@ -1,31 +1,65 @@
 <?php
-  // var_dump($_GET['page']);
+  //  $url = $_GET['page']
+  //
+  // $uri = explode('/', $url);
+  //
+  // echo "<br>";
+  // var_dump($uri);
+  // if (__base_url == null) {
+  //     require(getcwd().'/core_php/config.php');
+  // }
+
 if (isset($_GET['page'])) {
-    $page = $_GET['page'];
+    $uri = $_GET['page'];
 
-    $page = explode('/', $page);
+    $uri = explode('/', $uri);
 
-    if ($page[0] == 'admin') {
-        switch ($page[1]) {
+    if ($uri[0] == 'admin') {
+        switch ($uri[1]) {
         case 'login':
-            return require('../kp-pertanian/admin/login.php');
+            return require(getcwd().'/admin/login.php');
           break;
         case 'dashboard':
-            return require('../kp-pertanian/admin/dashboard.php');
+            return require(getcwd().'/admin/dashboard.php');
           break;
         case 'register':
-            return require('../kp-pertanian/admin/register.php');
+            return require(getcwd().'/admin/register.php');
+          break;
+        case 'logout':
+            return require(getcwd().'/admin/logout.php');
           break;
         default:
-            return require('../kp-pertanian/404.php');
-          # code...
+            return require(getcwd().'/404.php');
           break;
       }
-    } elseif ($page[0] == 'blog') {
-        return require('../kp-pertanian/front-page/blog.php');
+    } elseif ($uri[0] == 'post') {
+        switch ($uri[1]) {
+          case 'berita':
+              // var_dump($uri[2]);
+              if (isset($uri[2])) {
+                  $var = get_berita($uri[2]);
+              } else {
+                  require(getcwd().'/front-page/post_berita.php');
+              }
+
+
+            break;
+          case 'artikel':
+              require(getcwd().'/front-page/post_artikel.php');
+              if (isset($uri[2])) {
+                  get_artikel($uri[2]);
+              }
+            break;
+          default:
+              return require(getcwd().'/front-page/post.php');
+            break;
+        }
+        // var_dump($uri[1]);
+    } elseif ($uri[0] == 'agenda') {
+        return require(getcwd().'/front-page/agenda.php');
     } else {
-        return require('../kp-pertanian/404.php');
+        return require(getcwd().'/404.php');
     }
 } else {
-    return require('../kp-pertanian/front-page/front.php');
+    return require(getcwd().'/front-page/front.php');
 }

@@ -1,2 +1,4 @@
 <?php
-header('Location: /kp-pertanian/admin/login');
+require('../core_php/config.php');
+
+header('Location: '.__base_url.'admin/login');

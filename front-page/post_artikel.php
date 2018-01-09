@@ -11,7 +11,7 @@ require(getcwd().'/core_php/config.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Beranda</title>
+    <title>Artikel</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -26,7 +26,7 @@ require(getcwd().'/core_php/config.php');
   <body>
 
     <!-- Navigation -->
-  <?php require(getcwd().'/front-page/navbar.php'); ?>
+    <?php require(getcwd().'/front-page/navbar.php'); ?>
 
     <!-- Page Content -->
     <div class="container">
@@ -50,7 +50,7 @@ require(getcwd().'/core_php/config.php');
             </div>
             <div class="card-footer text-muted">
               Posted on January 1, 2017 by
-              <a href="#">Disan Pertanian Sumedang</a>
+              <a href="#">Start Bootstrap</a>
             </div>
           </div>
 

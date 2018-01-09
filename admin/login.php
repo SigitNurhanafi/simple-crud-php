@@ -1,15 +1,16 @@
 <?php
-session_start();
+require(getcwd().'/core_php/config.php');
 
 if (isset($_SESSION['data_admin'])) {
-    header("Location: /kp-pertanian/admin/dashboard");
+    header("Location: ".__base_url."/admin/dashboard");
+    dei();
 }
 
 require 'database.php';
 
 if (!empty($_POST['username']) && !empty($_POST['password'])):
 
-    $records = $conn->prepare('SELECT id_admin,username,password FROM admin WHERE username = :username');
+    $records = $conn->prepare('SELECT id_admin,nama_admin,username,password FROM admin WHERE username = :username');
     $records->bindParam(':username', $_POST['username']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
@@ -17,9 +18,9 @@ if (!empty($_POST['username']) && !empty($_POST['password'])):
     $message = '';
 
     if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
+        unset($results['password']);
         $_SESSION['data_admin'] = $results;
-
-        header("Location:  /kp-pertanian/admin/dashboard");
+        header('Location:  '.__base_url.'admin/dashboard');
     } else {
         $message = 'Sorry, those credentials do not match'.$results;
     }
@@ -62,7 +63,7 @@ if (!empty($_POST['username']) && !empty($_POST['password'])):
                  <div class="col-md-4 col-md-offset-4">
                      <div class="login-panel panel panel-default">
                          <div class="panel-heading">
-                             <h3 class="panel-title">Please Sign In</h3>
+                             <h3 class="panel-title ">Dashboard Admin</h3>
                          </div>
                          <div class="panel-body">
                           <?php if (isset($message)) : ?>
@@ -75,11 +76,6 @@ if (!empty($_POST['username']) && !empty($_POST['password'])):
                                      </div>
                                      <div class="form-group">
                                          <input class="form-control" placeholder="Password" name="password" type="password">
-                                     </div>
-                                     <div class="checkbox">
-                                         <label>
-                                             <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                         </label>
                                      </div>
                                      <!-- Change this to a button or input when using this as a form -->
                                      <button type="submit"  class="btn btn-lg btn-success btn-block" name="button">Login</button>
