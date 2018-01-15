@@ -2,23 +2,43 @@
 function update_data($tableName, $data, $pdoObject)
 {
     try {
-
-        // set the PDO error mode to exception
         $pdoObject->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $rowsSQL = array();
 
-        $sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
+        $toBind = array();
 
-        // Prepare statement
-        $stmt = $conn->prepare($sql);
+        $columnNames = array_keys($data[0]);
 
-        // execute the query
-        $stmt->execute();
+        foreach ($data as $arrayIndex => $row) {
+            $params = array();
+            foreach ($row as $columnName => $columnValue) {
+                $param = ":" . $columnName. $arrayIndex;
+                $queryColName =  $columnName."= :" . $columnName . $arrayIndex;
+                $queryColNames[] = $queryColName;
+                $params[] = $param;
+                $toBind[$param] = $columnValue;
+            }
+            $rowsSQL[] = implode(", ", $queryColNames);
+            $querySQL[] = implode(", ", $queryColNames);
+        }
 
-        // echo a message to say the UPDATE succeeded
-        return $stmt->rowCount() . " records UPDATED successfully";
+
+        $sql = "UPDATE ".$tableName." SET " . implode(", ", $queryColNames) . " WHERE ". $primaryKey ." = :".$primaryKey;
+        //
+        $pdoStatement = $pdoObject->prepare($sql);
+        //
+        $pdoStatement->bindValue($primaryKey, $id);
+        foreach ($toBind as $param => $val) {
+            $pdoStatement->bindValue($param, $val);
+            echo $param . ", ".$val."<br>";
+        }
+
+        print '<br>'.$sql;
+
+        return $pdoStatement->execute();
     } catch (PDOException $e) {
         return $sql . "<br>" . $e->getMessage();
     }
 
-    $conn = null;
+    $pdoObject = null;
 }

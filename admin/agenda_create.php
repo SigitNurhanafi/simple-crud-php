@@ -1,5 +1,9 @@
 <?php
 require(getcwd().'/core_php/config.php');
+require(getcwd().'/admin/__php_function/__db_insert.php');
+require(getcwd().'/admin/__php_function/__url_slug.php');
+
+require('database.php');
 
 if (!isset($_SESSION['data_admin'])) {
     header('Location: '.__base_url.'admin/login');
@@ -7,6 +11,18 @@ if (!isset($_SESSION['data_admin'])) {
 }
 
 $page_name = 'Create Agenda';
+
+// $tableName, $data, $pdoObject
+if ($_POST) {
+    $data[] = $_POST;
+    $data[0]['url'] = slugit($_POST['judul_agenda'].time());
+    $dump = insert_data('agenda', $data, $conn);
+
+    header('Location: '.__base_url.'admin/agenda');
+}
+
+$_POST = null;
+
 ?>
 
 <!DOCTYPE html>
@@ -63,23 +79,30 @@ $page_name = 'Create Agenda';
             </div>
 
             <div class="row">
+              <?php
+              if ($_POST) {
+                  var_dump($data);
+                  var_dump($dump);
+              }
+
+               ?>
               <div class="col-md-6">
-                <form class="" action="index.html" method="post">
+                <form class="" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
                   <div class="form-group">
                     <label>Judul Agenda</label>
-                    <input class="form-control">
+                    <input name="judul_agenda" class="form-control">
                   </div>
                   <div class="form-group">
                     <label>Isi Agenda</label>
-                    <textarea class="form-control" rows="3"></textarea>
+                    <textarea name="isi_agenda" class="form-control" rows="3"></textarea>
                   </div>
                   <div class="form-group">
                     <label>Keterangan Agenda</label>
-                    <input type-"text" class="form-control">
+                    <input name="keterangan" type-"text" class="form-control">
                   </div>
                   <div class="form-group">
                     <label>Tanggal Agenda</label>
-                    <input type="date" class="form-control" value="<?=date("Y-m-d")?>">
+                    <input name="tanggal_agenda" type="date" class="form-control" value="<?=date("Y-m-d")?>">
                   </div>
                   <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>

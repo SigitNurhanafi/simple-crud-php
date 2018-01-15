@@ -1,10 +1,18 @@
 <?php
 require(getcwd().'/core_php/config.php');
+require(getcwd().'/admin/__php_function/__str_limit.php');
+require(getcwd().'/admin/__php_function/__db_select_multi.php');
+
+
+require('database.php');
+
 
 if (!isset($_SESSION['data_admin'])) {
     header('Location: '.__base_url.'admin/login');
     dei();
 }
+
+$dataAgenda = select_multi('agenda', $conn);
 
 $page_name = 'Kelola Agenda';
 ?>
@@ -79,12 +87,13 @@ $page_name = 'Kelola Agenda';
                             </tr>
                           </thead>
                           <tbody>
+                            <?php foreach ($dataAgenda as $row): ?>
                             <tr>
-                                <td>Bencana Wabah Kutu Kupret</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ...</td>
-                                <td>sukses</td>
+                                <td><?= $row['judul_agenda'] ?></td>
+                                <td><?= limit_words($row['isi_agenda'], 10)?></td>
+                                <td><?= $row['keterangan'] ?></td>
 
-                                <td> 05-11-1996
+                                <td> <?= $row['tanggal_agenda'] ?>
                                   <span class="pull-right">
                                     <a href="#" class="btn btn-success btn-xs">View</a>
                                     <a href="#" class="btn btn-warning btn-xs">Edit</a>
@@ -92,6 +101,7 @@ $page_name = 'Kelola Agenda';
                                   </span>
                                 </td>
                             </tr>
+                            <?php endforeach; ?>
                           </tbody>
                       </table>
                     </div>

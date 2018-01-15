@@ -1,20 +1,18 @@
 <?php
-function delete_data($($tableName, $data, $pdoObject)
- {
-   try {
-       // set the PDO error mode to exception
-       $pdoObject->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+function delete_data($tableName, $primaryKey, $id, $pdoObject)
+{
+    try {
+        $pdoObject->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-       // sql to delete a record
-       $sql = "DELETE FROM MyGuests WHERE id=3";
+        $sql = "DELETE FROM `$tableName` WHERE ".$primaryKey." :".$primaryKey;
+        $stmt = $pdoObject->prepare($sql);
+        $stmt->bindParam($primaryKey, $id, PDO::PARAM_INT));
 
-       // use exec() because no results are returned
-       $conn->exec($sql);
-       return "Record deleted successfully";
-   } catch (PDOException $e) {
-       return $sql . "<br>" . $e->getMessage();
-   }
+        $stmt->execute()
+        return $stmt->rowCount() . " records DELETE successfully";
+    } catch (PDOException $e) {
+        return $sql . "<br>" . $e->getMessage();
+    }
 
-   $conn = null;
-
- }
+    $pdoObject = null;
+}
