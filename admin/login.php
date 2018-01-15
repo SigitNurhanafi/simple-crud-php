@@ -35,7 +35,7 @@ if (!empty($_POST['username']) && !empty($_POST['password'])):
          <meta name="description" content="">
          <meta name="author" content="">
 
-         <title>Startmin - Bootstrap Admin Theme</title>
+         <title>Login</title>
 
          <!-- Bootstrap Core CSS -->
          <link href="../admin/css/bootstrap.min.css" rel="stylesheet">

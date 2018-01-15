@@ -1,13 +1,5 @@
 <?php
-  //  $url = $_GET['page']
-  //
-  // $uri = explode('/', $url);
-  //
-  // echo "<br>";
-  // var_dump($uri);
-  // if (__base_url == null) {
-  //     require(getcwd().'/core_php/config.php');
-  // }
+
 
 if (isset($_GET['page'])) {
     $uri = $_GET['page'];
@@ -22,9 +14,9 @@ if (isset($_GET['page'])) {
         case 'dashboard':
             return require(getcwd().'/admin/dashboard.php');
           break;
-        case 'register':
-            return require(getcwd().'/admin/register.php');
-          break;
+        // case 'register':
+        //     return require(getcwd().'/admin/register.php');
+        //   break;
         case 'logout':
             return require(getcwd().'/admin/logout.php');
           break;
@@ -42,7 +34,6 @@ if (isset($_GET['page'])) {
                   require(getcwd().'/front-page/post_berita.php');
               }
 
-
             break;
           case 'artikel':
               require(getcwd().'/front-page/post_artikel.php');
@@ -57,6 +48,9 @@ if (isset($_GET['page'])) {
         // var_dump($uri[1]);
     } elseif ($uri[0] == 'agenda') {
         return require(getcwd().'/front-page/agenda.php');
+    } elseif ($uri[0] == 'register') {
+        $pw = password_hash('rahasia', PASSWORD_BCRYPT);
+        echo $pw;
     } else {
         return require(getcwd().'/404.php');
     }
