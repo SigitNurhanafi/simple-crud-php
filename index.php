@@ -11,6 +11,11 @@ if (isset($_GET['page'])) {
         case 'login':
             return require(getcwd().'/admin/login.php');
           break;
+
+        case 'logout':
+            return require(getcwd().'/admin/logout.php');
+          break;
+
         case 'dashboard':
             return require(getcwd().'/admin/dashboard.php');
           break;
