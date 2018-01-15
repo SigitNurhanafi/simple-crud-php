@@ -7,7 +7,7 @@ if (!isset($_SESSION['data_admin'])) {
 }
 
 
-$page_name = 'Delete Berita';
+$page_name = 'Create Berita';
 ?>
 
 <!DOCTYPE html>
@@ -64,12 +64,24 @@ $page_name = 'Delete Berita';
             </div>
 
             <div class="row">
-              <div class="col-md-12">
-                <?php var_dump($_SESSION['data_admin']); ?>
+              <div class="col-md-6">
+                <form class="" action="index.html" method="post">
+                  <div class="form-group">
+                    <label>Judul Berita</label>
+                    <input class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label>Isi Berita</label>
+                    <textarea class="form-control" rows="3"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label>Tanggal Berita</label>
+                    <input type="date" class="form-control" value="<?=date("Y-m-d")?>">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Simpan</button>
+                </form>
               </div>
             </div>
-            <!-- ... Your content goes here ... -->
-
         </div>
     </div>
 

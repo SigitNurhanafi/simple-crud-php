@@ -14,28 +14,87 @@ if (isset($_GET['page'])) {
         case 'dashboard':
             return require(getcwd().'/admin/dashboard.php');
           break;
-        // case 'register':
-        //     return require(getcwd().'/admin/register.php');
-        //   break;
-        case 'dashboard':
-            return require(getcwd().'/admin/dashboard.php');
-          break;
 
         case 'artikel':
-            return require(getcwd().'/admin/artikel.php');
+          if (isset($uri[2]) and $uri[2] !== '') {
+              switch ($uri[2]) {
+                case 'create':
+                  return require(getcwd().'/admin/artikel_create.php');
+                  break;
+
+                case 'edit':
+                  return require(getcwd().'/admin/artikel_edit.php');
+                  break;
+
+                case 'delete':
+                  return require(getcwd().'/admin/artikel_delete.php');
+                  break;
+
+                default:
+                  return require(getcwd().'/404.php');
+                  break;
+              }
+          } else {
+              return require(getcwd().'/admin/artikel.php');
+          }
           break;
 
         case 'berita':
+          if (isset($uri[2]) and $uri[2] !== '') {
+              switch ($uri[2]) {
+                case 'create':
+                  return require(getcwd().'/admin/berita_create.php');
+                  break;
+
+                case 'edit':
+                  return require(getcwd().'/admin/berita_edit.php');
+                  break;
+
+                case 'delete':
+                  return require(getcwd().'/admin/berita_delete.php');
+                  break;
+
+                default:
+                  return require(getcwd().'/404.php');
+                  break;
+              }
+          } else {
               return require(getcwd().'/admin/berita.php');
+          }
           break;
 
         case 'agenda':
-            return require(getcwd().'/admin/agenda.php');
+          if (isset($uri[2]) and $uri[2] !== '') {
+              switch ($uri[2]) {
+                case 'create':
+                  return require(getcwd().'/admin/agenda_create.php');
+                  break;
+
+                case 'edit':
+                  return require(getcwd().'/admin/agenda_edit.php');
+                  break;
+
+                case 'delete':
+                  return require(getcwd().'/admin/agenda_delete.php');
+                  break;
+
+                default:
+                  return require(getcwd().'/404.php');
+                  break;
+              }
+          } else {
+              return require(getcwd().'/admin/agenda.php');
+          }
+          break;
+
+        case 'delete':
+            return require(getcwd().'/admin/delete_record.php');
           break;
 
         case 'logout':
             return require(getcwd().'/admin/logout.php');
           break;
+
         default:
             return require(getcwd().'/404.php');
           break;

@@ -65,7 +65,36 @@ $page_name = 'Kelola Berita';
 
             <div class="row">
               <div class="col-md-12">
-                <?php var_dump($_SESSION['data_admin']); ?>
+                <div class="row">
+                  <div class="col-md-12">
+                    <a href="<?=__base_url?>admin/berita/create" class="btn btn-outline btn-info" style="margin-bottom:10px;"> Tambah Berita</a>
+
+                    <div class="table-responsive">
+                      <table class="table table-striped table-bordered table-hover">
+                          <thead>
+                            <tr>
+                                <th>Judul Berita</th>
+                                <th>Isi Berita</th>
+                                <th>Tanggal Berita</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                <td>Bencana Wabah Kutu Kupret</td>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ...</td>
+                                <td> 05-11-1996
+                                  <span class="pull-right">
+                                    <a href="#" class="btn btn-success btn-xs">View</a>
+                                    <a href="#" class="btn btn-warning btn-xs">Edit</a>
+                                    <a href="#" class="btn btn-danger btn-xs">Delete</a>
+                                  </span>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <!-- ... Your content goes here ... -->

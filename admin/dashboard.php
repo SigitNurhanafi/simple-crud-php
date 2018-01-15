@@ -64,7 +64,7 @@ $page_name = 'Dashboard';
 
             <div class="row">
               <div class="col-md-12">
-                <?php var_dump($_SESSION['data_admin']); ?>
+                <h3>Welcome back again Admin</h3>
               </div>
             </div>
             <!-- ... Your content goes here ... -->

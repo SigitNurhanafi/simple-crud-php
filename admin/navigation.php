@@ -12,7 +12,7 @@
 
     <!-- Top Navigation: Left Menu -->
     <ul class="nav navbar-nav navbar-left navbar-top-links">
-        <li><a href=" <?=__base_url?>/kp-pertanian"><i class="fa fa-home fa-fw"></i> Website</a></li>
+        <li><a href="<?=__base_url?>"><i class="fa fa-home fa-fw"></i> Website</a></li>
     </ul>
 
     <!-- Top Navigation: Right Menu -->
