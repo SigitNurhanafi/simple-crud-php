@@ -2,7 +2,7 @@
 require(getcwd().'/core_php/config.php');
 
 if (isset($_SESSION['data_admin'])) {
-    header("Location: ".__base_url."/admin/dashboard");
+    header("Location: ".__base_url."admin/dashboard");
     dei();
 }
 

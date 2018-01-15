@@ -6,7 +6,7 @@ if (!isset($_SESSION['data_admin'])) {
     dei();
 }
 
-$page_name = 'Dashboard';
+$page_name = 'Edit Artikel';
 ?>
 
 <!DOCTYPE html>

@@ -17,6 +17,22 @@ if (isset($_GET['page'])) {
         // case 'register':
         //     return require(getcwd().'/admin/register.php');
         //   break;
+        case 'dashboard':
+            return require(getcwd().'/admin/dashboard.php');
+          break;
+
+        case 'artikel':
+            return require(getcwd().'/admin/artikel.php');
+          break;
+
+        case 'berita':
+              return require(getcwd().'/admin/berita.php');
+          break;
+
+        case 'agenda':
+            return require(getcwd().'/admin/agenda.php');
+          break;
+
         case 'logout':
             return require(getcwd().'/admin/logout.php');
           break;

@@ -12,7 +12,7 @@
 
     <!-- Top Navigation: Left Menu -->
     <ul class="nav navbar-nav navbar-left navbar-top-links">
-        <li><a href="/kp-pertanian"><i class="fa fa-home fa-fw"></i> Website</a></li>
+        <li><a href=" <?=__base_url?>/kp-pertanian"><i class="fa fa-home fa-fw"></i> Website</a></li>
     </ul>
 
     <!-- Top Navigation: Right Menu -->
@@ -23,12 +23,12 @@
                 <i class="fa fa-user fa-fw"></i> <?=$_SESSION['data_admin']['nama_admin']?> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                <li><a href="../admin/#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                </li>
-                <li><a href="../admin/#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                </li>
-                <li class="divider"></li>
-                <li><a href="logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                <!-- <li><a href=" <?=__base_url?>../admin/#"><i class="fa fa-user fa-fw"></i> User Profile</a> -->
+                <!-- </li> -->
+                <!-- <li><a href=" <?=__base_url?>../admin/#"><i class="fa fa-gear fa-fw"></i> Settings</a> -->
+                <!-- </li> -->
+                <!-- <li class="divider"></li> -->
+                <li><a href=" <?=__base_url?>logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </li>
             </ul>
         </li>
@@ -42,16 +42,16 @@
 
                 <h2 style="margin-left:20px;">Selamat datang </h2>
                 <li>
-                    <a href="../admin/#" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    <a href=" <?=__base_url?>admin/" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="../admin/#" class="active"><i class="fa fa-dashboard fa-fw"></i> Artikel</a>
+                    <a href=" <?=__base_url?>admin/artikel/" class="active"><i class="fa fa-wordpress fa-fw"></i> Artikel</a>
                 </li>
                 <li>
-                    <a href="../admin/#" class="active"><i class="fa fa-dashboard fa-fw"></i> Berita</a>
+                    <a href=" <?=__base_url?>admin/berita/" class="active"><i class="glyphicon glyphicon-globe fa-fw"></i> Berita</a>
                 </li>
                 <li>
-                    <a href="../admin/#" class="active"><i class="fa fa-dashboard fa-fw"></i> Agenda</a>
+                    <a href=" <?=__base_url?>admin/agenda/" class="active"><i class="fa fa-calendar fa-fw"></i> Agenda</a>
                 </li>
 
             </ul>
