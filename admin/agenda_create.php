@@ -15,7 +15,7 @@ $page_name = 'Create Agenda';
 // $tableName, $data, $pdoObject
 if ($_POST) {
     $data[] = $_POST;
-    $data[0]['url'] = slugit($_POST['judul_agenda'].time());
+    $data[0]['url'] = slugit($_POST['judul_agenda'].'-'.time());
     $dump = insert_data('agenda', $data, $conn);
 
     header('Location: '.__base_url.'admin/agenda');
