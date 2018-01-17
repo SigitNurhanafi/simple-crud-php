@@ -79,13 +79,6 @@ $_POST = null;
             </div>
 
             <div class="row">
-              <?php
-              if ($_POST) {
-                  var_dump($data);
-                  var_dump($dump);
-              }
-
-               ?>
               <div class="col-md-6">
                 <form class="" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
                   <div class="form-group">

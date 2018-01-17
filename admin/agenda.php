@@ -95,9 +95,9 @@ $page_name = 'Kelola Agenda';
 
                                 <td> <?= $row['tanggal_agenda'] ?>
                                   <span class="pull-right">
-                                    <a href="#" class="btn btn-success btn-xs">View</a>
-                                    <a href="#" class="btn btn-warning btn-xs">Edit</a>
-                                    <a href="#" class="btn btn-danger btn-xs">Delete</a>
+                                    <a href="<?=__base_url?>admin/agenda/view" class="btn btn-success btn-xs">View</a>
+                                    <a href="<?=__base_url?>admin/agenda/edit" class="btn btn-warning btn-xs">Edit</a>
+                                    <a href="<?=__base_url?>admin/agenda/delete?go=<?= $row['no_agenda'] ?>" class="btn btn-danger btn-xs">Delete</a>
                                   </span>
                                 </td>
                             </tr>

@@ -1,9 +1,25 @@
 <?php
 require(getcwd().'/core_php/config.php');
+require(getcwd().'/admin/__php_function/__db_select.php');
+require(getcwd().'/admin/__php_function/__db_delete.php');
+require('database.php');
 
 if (!isset($_SESSION['data_admin'])) {
     header('Location: '.__base_url.'admin/login');
     dei();
+}
+// $tableName, $primaryKey, $id, $pdoObject
+if (isset($_GET['go']) and isset($_GET['yes'])) {
+    $id = $_GET['yes'];
+    delete_data('agenda', 'no_agenda', $id, $conn);
+} elseif ($_GET['go']) {
+    $id = $_GET['go'];
+    $data = select_singel('agenda', 'no_agenda', $id, $conn);
+    if ($data == null) {
+        header('Location: '.__base_url.'admin/agenda');
+    }
+} else {
+    header('Location: '.__base_url.'admin/agenda');
 }
 
 $page_name = 'Delete Agenda';
@@ -63,8 +79,26 @@ $page_name = 'Delete Agenda';
             </div>
 
             <div class="row">
-              <div class="col-md-12">
-                <?php var_dump($_SESSION['data_admin']); ?>
+              <div class="col-md-5">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            Peringatan
+                        </div>
+                        <div class="panel-body ">
+                          <p>Anda yakin akan menghapus data <b>" <?= $data->judul_agenda ?> "</b> secara permanen ?</p>
+
+                        </div>
+                        <div class="panel-footer ">
+
+                          <a href="<?=__base_url?>admin/agenda/delete?go=<?= $data->no_agenda ?>&yes=<?= $data->no_agenda ?>" class="btn btn-danger" style="color:#fff !important;"> ya</a>
+                          <a href="<?=__base_url?>admin/agenda" class="btn btn-danger" style="color:#fff !important;"> tidak</a>
+
+                        </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <!-- ... Your content goes here ... -->
