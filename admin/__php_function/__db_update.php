@@ -1,5 +1,5 @@
 <?php
-function update_data($tableName, $data, $pdoObject)
+function update_data($tableName, $data, $primaryKey, $id, $pdoObject)
 {
     try {
         $pdoObject->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

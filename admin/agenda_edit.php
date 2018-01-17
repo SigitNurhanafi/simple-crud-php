@@ -1,9 +1,34 @@
 <?php
 require(getcwd().'/core_php/config.php');
+require(getcwd().'/admin/__php_function/__db_select.php');
+require(getcwd().'/admin/__php_function/__db_update.php');
+
+require('database.php');
 
 if (!isset($_SESSION['data_admin'])) {
     header('Location: '.__base_url.'admin/login');
     dei();
+}
+
+if (isset($_GET['go']) and isset($_POST['simpan'])) {
+    $data = array(
+        array(
+            'judul_agenda' => $_POST['judul_agenda'],
+            'isi_agenda' => $_POST['isi_agenda'],
+            'tanggal_agenda' => $_POST['tanggal_agenda'],
+            'keterangan' => $_POST['judul_agenda']
+        )
+    );
+    update_data('agenda', $data, $_GET['go'], 'no_agenda', $conn);
+    return header('Location: '.__base_url.'admin/agenda');
+} elseif ($_GET['go']) {
+    $id = $_GET['go'];
+    $data = select_singel('agenda', 'no_agenda', $id, $conn);
+    if ($data == null) {
+        return header('Location: '.__base_url.'admin/agenda');
+    }
+} else {
+    header('Location: '.__base_url.'admin/agenda');
 }
 
 $page_name = 'Edit Agenda';
@@ -63,8 +88,26 @@ $page_name = 'Edit Agenda';
             </div>
 
             <div class="row">
-              <div class="col-md-12">
-                <?php var_dump($_SESSION['data_admin']); ?>
+              <div class="col-md-6">
+                <form class="" action="<?=$_SERVER['REQUEST_URI']?>" method="post">
+                  <div class="form-group">
+                    <label>Judul Agenda</label>
+                    <input name="judul_agenda" value="<?= $data->judul_agenda ?>" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label>Isi Agenda</label>
+                    <textarea name="isi_agenda" class="form-control" rows="3"><?= $data->isi_agenda ?></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label>Keterangan Agenda</label>
+                    <input name="keterangan" value="<?= $data->keterangan ?>" type-"text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label>Tanggal Agenda</label>
+                    <input name="tanggal_agenda" value="<?= $data->tanggal_agenda ?>" type="date" class="form-control" value="<?=date("Y-m-d")?>">
+                  </div>
+                  <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
+                </form>
               </div>
             </div>
             <!-- ... Your content goes here ... -->

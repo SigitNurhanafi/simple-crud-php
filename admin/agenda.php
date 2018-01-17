@@ -3,6 +3,8 @@ require(getcwd().'/core_php/config.php');
 require(getcwd().'/admin/__php_function/__str_limit.php');
 require(getcwd().'/admin/__php_function/__db_select_multi.php');
 
+require('database.php');
+
 
 require('database.php');
 
@@ -96,7 +98,7 @@ $page_name = 'Kelola Agenda';
                                 <td> <?= $row['tanggal_agenda'] ?>
                                   <span class="pull-right">
                                     <a href="<?=__base_url?>admin/agenda/view" class="btn btn-success btn-xs">View</a>
-                                    <a href="<?=__base_url?>admin/agenda/edit" class="btn btn-warning btn-xs">Edit</a>
+                                    <a href="<?=__base_url?>admin/agenda/edit?go=<?= $row['no_agenda'] ?>" class="btn btn-warning btn-xs">Edit</a>
                                     <a href="<?=__base_url?>admin/agenda/delete?go=<?= $row['no_agenda'] ?>" class="btn btn-danger btn-xs">Delete</a>
                                   </span>
                                 </td>
