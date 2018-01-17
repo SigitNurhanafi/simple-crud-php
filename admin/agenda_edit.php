@@ -19,7 +19,8 @@ if (isset($_GET['go']) and isset($_POST['simpan'])) {
             'keterangan' => $_POST['judul_agenda']
         )
     );
-    update_data('agenda', $data, $_GET['go'], 'no_agenda', $conn);
+    // function update_data($tableName, $data, $primaryKey, $id, $pdoObject)
+    update_data('agenda', $data, 'no_agenda', $_GET['go'], $conn);
     return header('Location: '.__base_url.'admin/agenda');
 } elseif ($_GET['go']) {
     $id = $_GET['go'];
